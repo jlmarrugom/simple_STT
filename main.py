@@ -21,12 +21,11 @@ try:
     data, samplerate = sf.read(BytesIO(audio_bytes))
     sf.write("audio.wav",data,samplerate)
     st.audio(audio_bytes, format = "audio/wav")
+    if data.shape[0]>=10000:
+        model = whisper.load_model("tiny")
+        result = model.transcribe("audio.wav")
+        st.info(result["text"])
+
+    else: st.warning("Recorded Audio is too short, try again :relieved:")#wink
 except:
     st.warning("Recorded Audio is too short, try again :relieved:")#wink
-if data.shape[0]>=10000:
-    model = whisper.load_model("tiny")
-    #result = model.transcribe(((data[:,0]+data[:,1])/2.0).astype(np.float32))
-    result = model.transcribe("audio.wav")
-    st.info(result["text"])
-
-else: st.warning("Recorded Audio is too short, try again :relieved:")#wink
