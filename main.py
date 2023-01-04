@@ -28,4 +28,4 @@ try:
 
     else: st.warning("Recorded Audio is too short, try again :relieved:")#wink
 except:
-    st.warning("Recorded Audio is too short, try again :relieved:")#wink
+    st.info("Try to record some audio :relieved:")
