@@ -3,7 +3,7 @@ from audio_recorder_streamlit import audio_recorder
 import whisper
 from io import BytesIO
 import soundfile as sf
-
+st.set_page_config(page_title="Whisper app", page_icon=":notes:")
 st.title("Whisper App :loudspeaker:")
 st.write(
     """
