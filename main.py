@@ -29,7 +29,7 @@ if uploaded_audio is None:
         sf.write("audio.wav",data,samplerate)
         st.audio(audio_bytes, format = "audio/wav")
         if data.shape[0]>=10000:
-            model = whisper.load_model("small") #tiny"
+            model = whisper.load_model("tiny") #tiny"
             result = model.transcribe("audio.wav")
             st.info(result["text"])
 
